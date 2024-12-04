@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule Your Lesson</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            font-size: 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Schedule Your Lesson</h1>
+        <form id="schedule-form">
+            <div class="form-group">
+                <label for="full_name">Full Name:</label>
+                <input type="text" id="full_name" name="full_name" placeholder="Enter your full name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email Address:</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            </div>
+            <div class="form-group">
+                <label for="lesson_date">Preferred Lesson Date:</label>
+                <input type="date" id="lesson_date" name="lesson_date" required>
+            </div>
+            <div class="form-group">
+                <label for="lesson_time">Preferred Lesson Time:</label>
+                <select id="lesson_time" name="lesson_time" required>
+                    <option value="Morning">Morning (9:00 AM - 12:00 PM)</option>
+                    <option value="Afternoon">Afternoon (1:00 PM - 4:00 PM)</option>
+                    <option value="Evening">Evening (5:00 PM - 7:00 PM)</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="lesson_topic">Lesson Topic:</label>
+                <textarea id="lesson_topic" name="lesson_topic" rows="4" placeholder="e.g., Basic computer skills, smartphone use, etc." required></textarea>
+            </div>
+            <button type="submit">Schedule My Lesson</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('schedule-form').addEventListener('submit', function(event) {
+            event.preventDefault();       
+            const formData = new FormData(event.target);
+            const params = new URLSearchParams();
+
+            formData.forEach((value, key) => {
+                params.append(key, value);
+            });
+
+                       window.location.href = `success.html?${params.toString()}`;
+        });
+    </script>
+
+</body>
+</html>

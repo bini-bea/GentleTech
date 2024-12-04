@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointment Scheduled Successfully</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        h1 {
+            color: #4CAF50;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        p {
+            color: #333;
+            font-size: 1.2rem;
+        }
+        .details {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #e8f5e9;
+            border: 1px solid #4CAF50;
+            border-radius: 8px;
+            font-size: 1.1rem;
+        }
+        .footer {
+            margin-top: 30px;
+            font-size: 0.9rem;
+            color: #777;
+        }
+        .footer a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Thank You for Scheduling Your Lesson!</h1>
+        <p>Your appointment has been successfully submitted.</p>
+
+        <div class="details">
+            <p><strong>Appointment Scheduled:</strong></p>
+            <p><strong>Full Name:</strong> <span id="full-name"></span></p>
+            <p><strong>Email:</strong> <span id="email"></span></p>
+            <p><strong>Lesson Date:</strong> <span id="lesson-date"></span></p>
+            <p><strong>Lesson Time:</strong> <span id="lesson-time"></span></p>
+            <p><strong>Lesson Topic:</strong> <span id="lesson-topic"></span></p>
+        </div>
+
+        <p>If you have any questions or need to make changes to your appointment, please contact us at <strong>1-800-123-4567</strong>.</p>
+
+        <!-- Adding YouTube video links here -->
+        <div class="footer">
+            <h2>Learn How to Navigate Your Phone:</h2>
+            <ul>
+                <li><a href="https://www.youtube.com/watch?v=D_jj5Awr0Kc&list=PLPRhQEDGqsFC4NL3DiYpPVnDKP9o1dnTw" target="_blank">Basic Phone Navigation for Beginners</a></li>
+                <li><a href="https://www.youtube.com/watch?v=kX4yiOSPA7E&list=PLPRhQEDGqsFC4NL3DiYpPVnDKP9o1dnTw&index=2" target="_blank">How to Use Your Smartphone Efficiently</a></li>
+                <li><a href="https://www.youtube.com/watch?v=oV0isqFPKe0" target="_blank">Getting Started with Smartphone Features</a></li>
+            </ul>
+        </div>
+
+        <div class="footer">
+            <p><a href="schedule.html">Go back to schedule another lesson</a></p>
+        </div>
+    </div>
+
+    <script>
+        window.onload = function() {
+
+            const params = new URLSearchParams(window.location.search);
+            
+
+            document.getElementById('full-name').textContent = params.get('full_name') || 'N/A';
+            document.getElementById('email').textContent = params.get('email') || 'N/A';
+            document.getElementById('lesson-date').textContent = params.get('lesson_date') || 'N/A';
+            document.getElementById('lesson-time').textContent = params.get('lesson_time') || 'N/A';
+            document.getElementById('lesson-topic').textContent = params.get('lesson_topic') || 'N/A';
+        };
+    </script>
+
+</body>
+</html>
